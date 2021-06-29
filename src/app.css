@@ -1,0 +1,142 @@
+body{
+    background-color: rgb(170, 170, 170);
+}
+
+.row{
+    background-color: white;
+    margin: 25px;
+    padding: 36px 30px;
+    border-radius: 5px;
+}
+
+.col-sm-6{
+    padding: 14px 179px;
+}
+
+input,select{
+    margin:0.5vw;
+    width:100%;
+    font-size: 1vw;
+    height:3vw;
+}
+input[type="button"]{
+    background-color: rgb(51, 51, 51);
+    color:white;
+    margin: 24px 4px;
+    font-size: 1.5vw;
+}
+label{
+    margin:1vw 5px;
+    font-size:1vw;
+}
+
+.labelClass{
+    text-align: right;
+}
+
+#tarea{
+    resize: none;
+    height:100px;
+    width:89%;
+    margin-left: 5px;
+}
+
+button{
+    background-color: rgb(51, 51, 51);
+    color:white;
+    width: 100px;
+    height: 40px;
+    border-radius: 7px;
+    float: right;
+    margin-right: 20vh;
+    margin-bottom: 50px;
+
+}
+
+#radio1{
+    width: 43%;
+    margin: 2px 7px 6px 5px;
+    border:1px solid black;
+    background-color: white;
+    color:black;
+    font-size: 1.25vw;
+}
+#radio2{
+    width: 43%;
+    margin: 5px 0px 6px 6px;
+    border:1px solid black;
+    background-color: white;
+    color:black;
+    font-size: 1.25vw;
+}
+
+.adS{
+     padding-right: 0px;
+}
+.bundlePart{
+    background:rgb(197, 197, 197);
+    font-size: 1vw;
+    padding: 5px 18px;
+    width: 70%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display:none;
+}
+
+.bundlePart button{
+    background-color:rgb(197, 197, 197);
+    width:20px;
+    height:20px;
+    margin:0px;
+    padding:0px;
+    font-family:cursive;
+    border:none;
+    color:black;
+}
+
+span{
+    color:rgb(80, 80, 80);
+}
+
+#h6{
+    font-size:1.5vw;
+}
+
+
+@media screen and (max-width:1200px) {
+    .row{
+        padding: 36px 4px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    input[type="button"]{
+        font-size:0.7rem;
+    }
+}
+@media screen and (max-width:770px) {
+    input[type="button"]{
+        font-size:0.5rem;
+    }
+    #radio1,#radio2{
+        width:40%;
+    }
+}
+@media screen and (max-width:1000px) {
+    input[type="button"]{
+        font-size:0.4rem;
+    }
+}
+@media screen and (max-width:490px){
+    #radio1,#radio2{
+        width:35%;
+    }
+    input[type="button"]{
+        font-size:0.3rem;
+    }
+}
+@media screen and (max-width:400px){
+    h5{
+        font-size:4vw;
+    }
+}
