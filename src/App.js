@@ -13,11 +13,14 @@ const App = () => {
       rname:"",
       rc:"",
       pn:"",
-      brand:"",
+      id:0,
+      brandName:"",
       pd:"",
       quant:"",
       dadd:"",
       ovalue:"",
+      roname:"",
+      opsname:""
     });
     const [comment,setComment]=useState("");
     const handleChange = (e) => {
@@ -63,10 +66,12 @@ const App = () => {
         if(value.pn!==""&&value.brand!=="" &&value.pd!=="" &&value.quant!==""&&i<3){
            i+=1;
            var partNumber=value.pn;
-           var brandname=value.brand;
+           var id=value.id;
+           var brandName=value.brandName;
+           var brand={id,brandName};
            var partDescription=value.pd;
            var quantity=value.quant;
-           var obj={partNumber,brandname,partDescription,quantity};
+           var obj={partNumber,brand,partDescription,quantity};
            console.log(value.pn, value.brand,value.pd)
            document.getElementById("b"+i).style.display="block"; 
            document.getElementById("sp"+i+"1").innerHTML=value.pn;
@@ -74,7 +79,7 @@ const App = () => {
            document.getElementById("sp"+i+"3").innerHTML=value.pd;
            document.getElementById("sp"+i+"4").innerHTML=value.quant;
            partsRequirements.push(obj);
-           setValue({pn:"",brand:"",pd:"",quant:""});
+           setValue({pn:"",brandName:"",pd:"",quant:""});
         }
     }
     
@@ -97,10 +102,12 @@ const App = () => {
       let recipientName=value.rname;
       let orderType=document.getElementById("oType").value;
       let demandID=value.did;
-      let destinationAccountNumber=value.dan;
+      let destinationIW={id:0,iwName:value.dan};
       let destinationType=document.getElementById("dType").value;
+      let retailOutlet={id:0,name:value.roname};
+      let opsExec={id:0,name:value.opsname};
 
-      let data={demandID,orderType,destinationAccountNumber,destinationType,recipientName,recipientContact,partsRequirements,destinationAddress,casePriority,orderValue,advanceStatus,comment};
+      let data={demandID,orderType,destinationIW,destinationType,recipientName,recipientContact,partsRequirements,destinationAddress,casePriority,orderValue,advanceStatus,comment,retailOutlet,opsExec};
       //console.log(value.did,value.rname,value.dadd,value.dan,value.ovalue,value.pd,value.pn,value.quant,value.brand,value.rc);
       console.log(data);
       // console.log(partsRequirements);
@@ -131,19 +138,22 @@ const App = () => {
                   <h5>Doorstep Delivery Request Form</h5><hr/>
                   <div className="labelClass col-3 col-md-3 ">
                     <label>Demand ID  </label><br />
-                    <label>Destination Account Number</label><br />
+                    <label>Destination Account Name</label><br />
                     <label>Recipient Name</label><br />
+                    <label>RO Name</label><br />
                   </div>
                   <div className="col-3">
                     <input type="text" name="did" value={value.did} onChange={handleChange} required/><br />
                     <input type="text" name="dan" value={value.dan} onChange={handleChange} required/><br />
                     <input type="text" name="rname" value={value.rname} onChange={handleChange} required/><br />
+                    <input type="text" name="roname" value={value.roname} onChange={handleChange} required/><br />
                     
                   </div>
                   <div className="labelClass col-md-2 col-3">
                        <label>Order Type</label><br />
                        <label>Destination Type</label><br />
                        <label>Recipient Contact Number</label><br />
+                       <label>OPS Exec Name</label><br />
                   </div>
                   <div className="col-3">
                       <select id="oType">
@@ -160,6 +170,7 @@ const App = () => {
                         <option value="OT">OT</option>
                       </select><br/>
                       <input type="text" name="rc" value={value.rc} onChange={handleChange} required/><br />
+                      <input type="text" name="opsname" value={value.opsname} onChange={handleChange} required/><br />
                   </div>
                 </div>
                 <div className="row">
@@ -172,7 +183,7 @@ const App = () => {
                   </div>
                   <div className="col-3">
                       <input type="text" name="pn" value={value.pn} onChange={handleChange} required/><br />
-                      <input type="text" name="brand" value={value.brand} onChange={handleChange} required/><br />
+                      <input type="text" name="brandName" value={value.brandName} onChange={handleChange} required/><br />
                       <input type="text" name="pd" value={value.pd} onChange={handleChange} required/><br />
                       <input type="text" name="quant" value={value.quant} onChange={handleChange} required/><br />
                       <input type="button" value="+ADD PART BUNDLE" onClick={addBundle}/>
