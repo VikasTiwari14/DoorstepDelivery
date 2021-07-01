@@ -75,11 +75,11 @@ const App = () => {
            console.log(value.pn, value.brand,value.pd)
            document.getElementById("b"+i).style.display="block"; 
            document.getElementById("sp"+i+"1").innerHTML=value.pn;
-           document.getElementById("sp"+i+"2").innerHTML=value.brand;
+           document.getElementById("sp"+i+"2").innerHTML=value.brandName;
            document.getElementById("sp"+i+"3").innerHTML=value.pd;
            document.getElementById("sp"+i+"4").innerHTML=value.quant;
            partsRequirements.push(obj);
-           setValue({pn:"",brandName:"",pd:"",quant:""});
+          //  setValue({pn:"",brandName:"",pd:"",quant:""});
         }
     }
     
@@ -110,7 +110,7 @@ const App = () => {
       let data={demandID,orderType,destinationIW,destinationType,recipientName,recipientContact,partsRequirements,destinationAddress,casePriority,orderValue,advanceStatus,comment,retailOutlet,opsExec};
       //console.log(value.did,value.rname,value.dadd,value.dan,value.ovalue,value.pd,value.pn,value.quant,value.brand,value.rc);
       console.log(data);
-      // console.log(partsRequirements);
+      console.log(demandID);
       let result= await fetch("http://cloud.ideoholics.com:8006/parts-delivery/delivery-request/create",{
         method:"POST",
         body:JSON.stringify(data),
